@@ -134,7 +134,7 @@ System.out.println("양수 값입니다.");
 **1. Generics**
 5 버전의 가장 중요한 신규 기능입니다. 기존에 컬렉션프레임워크를 이용하여 발생할 수 있는 ClassCastException을 컴파일 시간에 검증할 수 있습니다. 이러한 컴파일 검증 기능 뿐만 아니라 코드에 대한 데이터를 명확하게 하여 가독성을 높일 수 있습니다. 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미합니다. 객체 별로 다른 타입의 자료가 저장될 수 있도록 합니다.
 ```java
-ArrayList<String> list = new ArrayList<>();
+ArrayList<String> list = new ArrayList<String>();
 ```
 
 **3. Annotation**
