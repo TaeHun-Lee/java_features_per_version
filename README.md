@@ -225,7 +225,27 @@ List<Integer> list = new ArrayList<>();
 ```
 
 **2. switch문에서 String 사용**
-Tyr-Catch 내에 선언된 Collection 등의 자원을 자동으로 close 처리합니다.
+```java
+/**
+* Java Program to demonstrate how string in switch functionality is implemented in * Java SE 7 release. 
+*/ 
+
+public class StringInSwitchCase {
+	public static void main(String[] args) {
+		String mode = args[0];
+		switch (mode) {
+			case "ACTIVE":
+			System.out.println("Application is running on Active mode");
+			break;
+			case "PASSIVE":
+			System.out.println("Application is running on Passive mode"); 
+			break;
+			case "SAFE":
+			System.out.println("Application is running on Safe mode"); 
+		}
+	}
+}
+```
 
 **3. Try-with-resources**
 try-catch 블록 사용 시 finally 블록 안에서 명시적으로 close를 호출하지 않아도 자동으로 사용된 자원을 해제해주는 기능
