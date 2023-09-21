@@ -1,7 +1,7 @@
 # java_features_per_version
 
 
-[Java version history]![[Pasted image 20230917214126.png]]
+![Pasted image 20230917214119](https://github.com/TaeHun-Lee/java_features_per_version/assets/46686577/e58e2ede-e797-4e24-a06a-a522aed76343)
 
 # Java 1
 
@@ -22,7 +22,7 @@
 > Remote Method Invocation의 약자로 분산 애플리케이션을 구축하는 데 사용됩니다.  
 >한 시스템(JVM)에 상주하는 객체가 다른 JVM에서 실행 중인 객체에 액세스, 호출할 수 있도록 도와주는 메커니즘입니다. 코드에서는 java.rmi 패키지를 통하여 제공됩니다.
 
-![[Pasted image 20230920020917.png]]
+![Pasted image 20230920020917](https://github.com/TaeHun-Lee/java_features_per_version/assets/46686577/87909814-0b8b-437b-80b3-f306baf87d70)
 
 ```java
 import java.rmi.Remote;
@@ -546,7 +546,7 @@ Stream<Integer> stream = Optional.of(1).stream();
 - Subscription
 - Processor
 
-![[Pasted image 20230920032459.png]]
+![Pasted image 20230920032459](https://github.com/TaeHun-Lee/java_features_per_version/assets/46686577/ec05a180-5ee3-4fdd-90d9-0ddb039fd587)
 
 ### Java SE 10
 ---
