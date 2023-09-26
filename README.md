@@ -1,6 +1,3 @@
-# java_features_per_version
-
-
 ![Pasted image 20230917214119](https://github.com/TaeHun-Lee/java_features_per_version/assets/46686577/e58e2ede-e797-4e24-a06a-a522aed76343)
 
 # Java 1
@@ -18,7 +15,7 @@
 >   3. 속성에 접근하고 꺼내올 수 있는 getter, setter 메서드를 구성한다.  
 >   4. Serializable을 구현한다.
 
-> **RMI 란?**  
+> **RMI 란?**
 > Remote Method Invocation의 약자로 분산 애플리케이션을 구축하는 데 사용됩니다.  
 >한 시스템(JVM)에 상주하는 객체가 다른 JVM에서 실행 중인 객체에 액세스, 호출할 수 있도록 도와주는 메커니즘입니다. 코드에서는 java.rmi 패키지를 통하여 제공됩니다.
 
@@ -99,6 +96,9 @@ Member member = (Member) constructor.newInstance();
 ### J2SE 1.2
 ---
 **1. Swing GUI, JIT, Collection Framework 등의 굵직한 기능이 추가되었습니다.**
+
+> Collection Framework에는 동기화된 버전의 컬렉션도 제공됩니다. 예를 들어, `ConcurrentHashMap`, `ConcurrentLinkedQueue`와 같은 컬렉션은 스레드 안전성을 제공하며 별도의 동기화 작업 없이 안전하게 사용할 수 있습니다.
+
 **2. 부터 약칭을 J2SE(Java 2 Standard Edition)로 표기하기 시작했으며, 이 표기는 5까지 사용됩니다.**
 
 ### J2SE 1.3
@@ -118,6 +118,19 @@ Member member = (Member) constructor.newInstance();
 ---
 **1. assert, [정규표현식](https://namu.wiki/w/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D), [IPv6](https://namu.wiki/w/IPv6), XML API, JCE, JSSE, JAAS, Java Web Start 등이 추가되었습니다.**
 
+> **assert**
+> Java의 `assert` 문을 사용하여 가정을 검증하고 코드를 안정화하는 것은 Java의 철학 중 하나인 "실패 원칙"과 관련이 있습니다. 이 원칙은 프로그램이 실패하더라도 가능한 한 빨리 실패를 발견하고 오류를 조기에 처리해야 한다는 것을 강조합니다. `assert` 문은 이러한 철학을 구현하는 데 도움을 주며, 개발자에게 코드의 신뢰성과 안정성을 높이는 도구를 제공합니다.
+> 
+> 1. **가정 검증 (Assertion Verification):** `assert` 문은 코드 내의 가정을 검증하기 위한 도구로 사용됩니다. 개발자는 코드에서 기대하는 상태나 조건을 명시적으로 검사할 수 있으며, 이러한 가정이 만족되지 않으면 AssertionError가 발생하여 프로그램이 중단됩니다. 
+> 2. **디버깅 및 오류 검출:** `assert` 문은 디버깅과 오류 검출에 도움이 됩니다. 코드 내에서 예상치 못한 문제가 발생할 때 `assert` 문을 사용하여 해당 문제를 빠르게 식별하고 원인을 찾을 수 있습니다.  
+> 3. **문서화와 가독성:** `assert` 문을 사용하면 코드의 가정을 문서화할 수 있습니다. 이러한 문서화는 다른 개발자가 코드를 이해하고 유지 관리할 때 도움이 됩니다. 또한 코드가 나중에 변경될 때 이러한 가정이 여전히 유효한지 확인할 수 있습니다. 
+> 4. **선행조건과 후행조건 검사:** `assert` 문을 사용하여 메서드나 함수에 대한 선행조건 (precondition)과 후행조건 (postcondition)을 검사할 수 있습니다. 선행조건은 메서드 호출 전에 검사되며, 후행조건은 메서드 실행 후에 검사됩니다. 이는 코드의 일관성과 안정성을 높이는 데 도움을 줍니다.
+> 5. **테스트 코드 작성:** `assert` 문은 단위 테스트 및 통합 테스트를 작성하는 데 필수적입니다. 테스트 케이스 내에서 예상 결과와 실제 결과를 비교하여 테스트를 수행하고 결과를 확인하는 데 사용됩니다.
+> 6. **유효성 검사:** `assert` 문을 사용하여 입력 데이터나 중간 계산 결과의 유효성을 검사할 수 있습니다. 이는 예외를 던지기 전에 무효한 입력을 확인하는 데 도움이 됩니다.
+> 또한 기본적으로 Java에서는 `assert` 문이 비활성화되어 있으며, 활성화하려면 명령줄 옵션 또는 실행 환경 설정을 변경해야 합니다. 또한 `assert` 문은 프로그램의 런타임 동작에 영향을 미치지 않는다는 가정하에 사용되므로, 런타임 성능에 부정적인 영향을 미치지 않도록 주의해야 합니다.
+
+> 정리하자면 Assert는 실제 런타임 환경에서 에러가 발생하지 않도록 테스트 단계에서 가정과 검증을 거치기 위해 사용하는 것이며 런타임 환경에서 사용은 지양하는 것이 좋을 것 같습니다.
+
 ```java
 int value = -1;
 assert value >= 0 : "음수 값입니다.";
@@ -134,7 +147,7 @@ System.out.println("양수 값입니다.");
 **1. Generics**
 5 버전의 가장 중요한 신규 기능입니다. 기존에 컬렉션프레임워크를 이용하여 발생할 수 있는 ClassCastException을 컴파일 시간에 검증할 수 있습니다. 이러한 컴파일 검증 기능 뿐만 아니라 코드에 대한 데이터를 명확하게 하여 가독성을 높일 수 있습니다. 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미합니다. 객체 별로 다른 타입의 자료가 저장될 수 있도록 합니다.
 ```java
-ArrayList<String> list = new ArrayList<String>();
+ArrayList<String> list = new ArrayList<>();
 ```
 
 **3. Annotation**
@@ -152,18 +165,96 @@ public @interface Count100 {
 
 **4. Concurrency API**
 API를 사용하여 병렬 프로그래밍 혹은 멀티 스레드를 손쉽게 구현할 수 있습니다. 
+
+1. **스레드 생성 및 실행:**
 ```java
-public static void main(String[] args) {
-	Runnable task = () -> {
-		String threadName = Thread.currentThread().getName();
-		System.out.println("Hello " + threadName);
-	};
-	
-	task.run();
-	Thread thread = new Thread(task);
-	thread.start();
-	System.out.println("Done!");
+// Runnable 인터페이스 구현을 통한 스레드 생성
+Runnable task = () -> { 
+	String threadName = Thread.currentThread().getName();
+	System.out.println("Hello " + threadName);
+};
+task.run();
+Thread thread = new Thread(task);
+thread.start();
+System.out.println("Done!");
+```
+
+2. **Executor 및 스레드 풀 사용:**
+```java
+// Executor를 사용한 스레드 풀 생성 및 작업 실행
+Executor executor = Executors.newFixedThreadPool(3);
+Runnable task = () -> {
+    System.out.println("Task executed by " + Thread.currentThread().getName());
+};
+executor.execute(task);
+```
+
+3. **동기화 및 Lock 사용:**
+```java
+// Lock을 사용한 동기화
+ReentrantLock lock = new ReentrantLock();
+lock.lock();
+try {
+    // 임계 영역 (Critical Section)
+    // 공유 자원에 대한 접근
+} finally {
+    lock.unlock();
 }
+```
+
+4. **Wait 및 Notify 사용:**
+```java
+// wait()과 notify()를 사용한 스레드 간 통신
+Object monitor = new Object();
+
+// Producer 스레드
+synchronized (monitor) {
+    // 데이터를 생산하고
+    monitor.notify(); // Consumer 스레드를 깨움
+}
+
+// Consumer 스레드
+synchronized (monitor) {
+    monitor.wait(); // Producer로부터 데이터를 기다림
+    // 데이터를 소비
+}
+```
+
+5. **Fork/Join 프레임워크 사용:**
+```java
+// ForkJoinPool을 사용한 병렬 처리
+ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
+long result = forkJoinPool.invoke(new MyRecursiveTask());
+```
+
+6. **CountDownLatch 사용:**
+```java
+// CountDownLatch를 사용한 작업 완료 대기
+CountDownLatch latch = new CountDownLatch(3);
+
+// 스레드에서 작업 수행 후
+latch.countDown(); // 작업 완료를 알림
+
+// 다른 스레드에서
+latch.await(); // 작업이 완료될 때까지 대기
+```
+
+7. **Semaphore 사용:**
+```java
+// Semaphore를 사용한 리소스 제한
+Semaphore semaphore = new Semaphore(3); // 최대 3개의 스레드까지 허용
+semaphore.acquire(); // 리소스 획득
+// 스레드에서 리소스 사용
+semaphore.release(); // 리소스 반환
+```
+
+8. **CompletableFuture 사용:**
+```java
+// CompletableFuture를 사용한 비동기 작업과 조합
+CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> 42);
+CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> 10);
+CompletableFuture<Integer> resultFuture = future1.thenCombine(future2, (x, y) -> x + y);
+Integer result = resultFuture.join();
 ```
 
 **5. Enumeration**
@@ -192,6 +283,7 @@ public static void main(String[] args) {
 2. 가비지 컬렉터 G1(Garbage First) GC을 오직 테스트용으로만 사용하도록 추가하였습니다.
 > **Garbage Collection**  
 > Heap 영역 내에서 unreachable object를 찾아 회수함으로써 메모리 관리 역할을 수행합니다.
+> (보충 하기)
 
 3. Scripting API [DOC](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html)
 - 자바 코드 내에서 스크립팅 언어 (예: JavaScript)를 실행할 수 있는 기능을 도입했습니다.
@@ -225,30 +317,13 @@ List<Integer> list = new ArrayList<>();
 ```
 
 **2. switch문에서 String 사용**
-```java
-/**
-* Java Program to demonstrate how string in switch functionality is implemented in * Java SE 7 release. 
-*/ 
-
-public class StringInSwitchCase {
-	public static void main(String[] args) {
-		String mode = args[0];
-		switch (mode) {
-			case "ACTIVE":
-			System.out.println("Application is running on Active mode");
-			break;
-			case "PASSIVE":
-			System.out.println("Application is running on Passive mode"); 
-			break;
-			case "SAFE":
-			System.out.println("Application is running on Safe mode"); 
-		}
-	}
-}
-```
+Tyr-Catch 내에 선언된 Collection 등의 자원을 자동으로 close 처리합니다.
 
 **3. Try-with-resources**
 try-catch 블록 사용 시 finally 블록 안에서 명시적으로 close를 호출하지 않아도 자동으로 사용된 자원을 해제해주는 기능
+
+> **Auto close 해주는 기준**
+> Try-with-resources 문장을 사용하려면 close 대상인 Resource 클래스가 AutoCloseable 인터페이스를 구현해야 합니다. AutoCloseable 인터페이스에는 close() 메서드가 정의되어 있으며 이 메서드를 사용하여 자원을 명시적으로 해제할 수 있어야 합니다.
 
 ```java
 public static void main(String args[]) {
@@ -274,6 +349,28 @@ public static void main(String args[]) {
 
 **1. Lambda Expression**  
 메소드를 지칭하는 명칭 없이 구현부를 선언하는 익명 메소드 생성 문법입니다. 별도의 익명 클래스를 만들어서 선언하던 방식을 람다를 통해 대폭 간소화할 수 있으며, 함수형 프로그래밍, 스트림 API 그리고 컬럭션 프레임워크의 개선 등에 영향을 주었습니다. 
+
+> 익명 메소드 (Anonymous Function)과 Lambda Expression의 차이
+> - Lambda 표현식은 컴파일러가 파라미터 타입을 추론할 수 있으므로 타입을 명시적으로 선언할 필요가 없습니다.
+> - 익명 함수에서는 파라미터 타입을 명시적으로 선언해야 합니다.
+> - 두 표현식 모두 서로 상호 변경이 가능합니다.
+
+```java
+// Lambda Expression
+Function<Integer, Integer> square = x -> x * x;
+```
+```java
+// Anonymous Function
+Function<Integer, Integer> square = new Function<Integer, Integer>() {
+    @Override
+    public Integer apply(Integer x) {
+        return x * x;
+    }
+};
+```
+
+> 도입 배경 ?
+> **함수형 프로그래밍 지원:** 함수형 프로그래밍은 코드를 좀 더 간결하고 읽기 쉽게 만들어주며, 병렬 처리와 같은 다중 코어 CPU를 활용한 효율적인 프로그래밍을 지원합니다. Lambda 표현식은 함수형 프로그래밍을 자바에 도입하기 위한 핵심 요소 중 하나입니다. Java 8의 Lambda 표현식과 함수형 프로그래밍 개념은 Java의 진화를 이끈 중요한 요소 중 하나이며, 더 현대적이고 효율적인 프로그래밍을 지원합니다. 이러한 변화는 Java 언어와 생태계를 더욱 강력하고 다양한 도구와 라이브러리를 활용할 수 있는 방향으로 나아가게 해주었습니다.
 
 ```java
 // 기존의 방식 반환티입 메소드명 (매개변수, ...) { 실행문 } 
@@ -457,17 +554,75 @@ module java.sql {
 }
 ```
 
+> 디렉토리 구조 확인해봅시다
+
 **2. A New HTTP Client**  
 Java SE 8까지 사용하던 HttpURLConnection을 대체할 새로운 java.net.http 패키지가 추가되었습니다. 
 
-```java
-HttpRequest request = HttpRequest.newBuilder()
-  .uri(new URI("https://postman-echo.com/get"))
-  .GET()
-  .build();
+> Java 9 이전
 
-HttpResponse<String> response = HttpClient.newHttpClient()
-  .send(request, HttpResponse.BodyHandler.asString());
+```java
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class HttpURLConnectionExample {
+    public static void main(String[] args) throws Exception {
+        String url = "https://example.com";
+
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.setRequestMethod("GET");
+
+        int responseCode = connection.getResponseCode();
+        System.out.println("Response Code: " + responseCode);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String line;
+        StringBuilder response = new StringBuilder();
+
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        reader.close();
+
+        System.out.println("Response Body: " + response.toString());
+    }
+}
+```
+
+> Java 9 이후
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
+
+public class HttpRequestExample {
+    public static void main(String[] args) throws Exception {
+        String url = "https://example.com";
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI(url))
+                .GET()
+                .build();
+
+        CompletableFuture<HttpResponse<String>> responseFuture = httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+
+        responseFuture.thenAccept(response -> {
+            int statusCode = response.statusCode();
+            System.out.println("Response Code: " + statusCode);
+
+            String responseBody = response.body();
+            System.out.println("Response Body: " + responseBody);
+        });
+
+        // 비동기 작업이 완료될 때까지 대기
+        responseFuture.join();
+    }
+}
 ```
 
 **3. Jshell - The Java Shell**
@@ -511,19 +666,25 @@ Java SE 7에는 코드를 보다 읽기 쉽게 만드는데 도움 되는 다이
 
 Java SE 9 이후부터는 익명 클래스에서도 사용할 수 있도록 개선되었습니다.
 
-``` java
-FooClass<Integer> fc = new FooClass<>(1) { 
-    // anonymous inner class
-};
-FooClass<? extends Integer> fc0 = new FooClass<>(1) {
-    // anonymous inner class
-};
-FooClass<?> fc1 = new FooClass<>(1) { 
-    // anonymous inner class
-};
-// 타입 파라메터없이 List만 사용해도 추론이 가능함
-public List getPerson(String id) {
-    return new List(findPersonById(id)){};
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class DiamondOperatorExample {
+    public static void main(String[] args) {
+	    // 익명 내부 클래스에서 Diamond Operator 사용 (경고 발생하지 않음)
+        List<String> list = new ArrayList<>(){
+            {
+                add("Java");
+                add("C++");
+                add("Python");
+            }
+        };
+        
+        for (String lang : list) {
+            System.out.println(lang);
+        }
+    }
 }
 ```
 
@@ -552,9 +713,27 @@ interface NewInterface {
 **8. Optional To Stream**
 
 ```java
-Stream<Optional> person = getPerson(id);
-// Optional.stream은 Stream<Optional>을 Stream<Person>으로 바꾸어줌
-Stream personStream = person.flatMap(Optional::stream);
+import java.util.Optional;
+import java.util.stream.Stream;
+
+interface Person {
+    String getName();
+}
+
+// 예시로 사용할 Optional<Person> 객체 생성
+Optional<Person> optionalPerson = Optional.of(new Person() {
+	@Override
+	public String getName() {
+		return "John";
+	}
+});
+
+// Java 9부터 추가된 stream 메서드를 사용하여 Optional을 Stream으로 변환
+Stream<Person> personStream = optionalPerson.stream();
+
+// Stream의 요소 출력
+personStream.forEach(person -> System.out.println("Person Name: " + person.getName()));
+
 // 아래와 같이 Optional로 Stream을 생성할 수 있음. 
 Stream<Integer> stream = Optional.of(1).stream();
 ```
@@ -566,6 +745,64 @@ Stream<Integer> stream = Optional.of(1).stream();
 - Subscriber
 - Subscription
 - Processor
+
+```java
+import java.util.concurrent.Flow;
+import java.util.concurrent.SubmissionPublisher;
+
+public class FlowExample {
+
+    public static void main(String[] args) throws InterruptedException {
+        // SubmissionPublisher는 Publisher와 Subscriber를 연결해주는 클래스입니다.
+        SubmissionPublisher<String> publisher = new SubmissionPublisher<>();
+
+        // Subscriber 구현체 생성
+        Flow.Subscriber<String> subscriber = new Flow.Subscriber<>() {
+            private Flow.Subscription subscription;
+
+            @Override
+            public void onSubscribe(Flow.Subscription subscription) {
+                this.subscription = subscription;
+                subscription.request(1); // 구독 시작
+            }
+
+            @Override
+            public void onNext(String item) {
+                System.out.println("Received: " + item);
+                subscription.request(1); // 다음 아이템을 요청
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onComplete() {
+                System.out.println("Done");
+            }
+        };
+
+        // Publisher와 Subscriber 연결
+        publisher.subscribe(subscriber);
+
+        // 데이터 발행
+        publisher.submit("Hello");
+        publisher.submit("World");
+        publisher.submit("Flow");
+
+        // 스레드가 종료되기 전에 잠시 대기
+        Thread.sleep(1000);
+
+        // 종료
+        publisher.close();
+    }
+}
+
+/**
+이 예제에서는 SubmissionPublisher를 사용하여 문자열 데이터를 발행하고, Subscriber 인터페이스를 구현하여 데이터를 구독합니다. `onSubscribe`, `onNext`, `onError`, `onComplete` 메서드를 사용하여 데이터 처리와 에러 핸들링을 수행합니다.
+**/
+```
 
 ![Pasted image 20230920032459](https://github.com/TaeHun-Lee/java_features_per_version/assets/46686577/ec05a180-5ee3-4fdd-90d9-0ddb039fd587)
 
@@ -598,6 +835,19 @@ for (var number : numbers){		//Integer 추론
 **2. [Garbage Collector Interface](http://openjdk.java.net/jeps/304)**
 다양한 GC의 코드 고립도를 향상하는 인터페이스를 도입하였습니다.
 
+> 1. **`java.lang.management.GarbageCollectorMXBean` 인터페이스 확장:**
+> - `GarbageCollectorMXBean`은 이전에도 GC 관련 정보를 얻을 수 있는 인터페이스였습니다. Java 10에서는 이 인터페이스가 확장되어 사용자 지정 GC 관련 동작을 추가하고 구현할 수 있도록 되었습니다.
+
+> 2. **새로운 `java.lang.management.GarbageCollector` 인터페이스:**
+> - `GarbageCollector` 인터페이스는 Java 10부터 도입된 인터페이스로, GC 구현체를 나타내는데 사용됩니다.
+> - 사용자는 이 인터페이스를 구현하여 자체 GC 알고리즘을 개발하고 사용할 수 있습니다.
+
+사용자 정의 GC 알고리즘을 만들려면 다음 단계를 따를 수 있습니다:
+
+> 1. `GarbageCollector` 인터페이스를 구현합니다.
+> 2. GC 알고리즘에 필요한 로직을 구현합니다.
+> 3. 해당 GC 알고리즘을 Java 애플리케이션에 적용합니다.
+
 **3. Thread-Local Handshakes**
 VM safepoint를 수행할 필요 없이 개별 스레드를 stop 시키고 콜백을 수행하도록 할 수 있는 기능을 도입하였습니다.
 
@@ -615,7 +865,7 @@ VM safepoint를 수행할 필요 없이 개별 스레드를 stop 시키고 콜�
 **4. Root Certificates**
 HTTPS 통신에 쓰이는 SSL/TLS 인증서를 발급해주는 인증 기관인 CA 중에서 root CA 목록을 브라우저와 마찬가지로 Oracle JDK에서도 가지고 있습니다. OpenJDK도 이를 Java SE 10부터 지원합니다.
 
-### Java SE 11
+### Java SE 11 (LTS)
 ---
 #### **기능 변화**
 
@@ -691,6 +941,44 @@ switch (day) {
 ```
 
 **2. 가비지 컬렉터 개선, 마이크로 벤치마크 툴 추가, 성능 개선의 변경점이 있습니다.**
+
+> 마이크로 벤치마크 툴
+ - Java 12부터는 JDK(Microbenchmarking Mode)에 기본적으로 포함된 새로운 마이크로벤치마크 도구가 도입되었습니다. 이 도구는 `java` 명령과 함께 `-XX:+UseMicroBenchmark` 옵션을 사용하여 활성화할 수 있습니다. 이 도구를 사용하면 Java 프로그램의 성능을 미세하게 측정하고 분석할 수 있습니다.
+
+주요 특징과 사용법은 다음과 같습니다:
+
+1. **미세한 벤치마크 측정:** 이 도구는 초당 연산 횟수(OPS)와 같은 성능 측정 값을 표시하여 매우 미세한 벤치마크를 수행할 수 있습니다.
+
+2. **`@Benchmark` 애너테이션:** 벤치마크 메서드를 정의할 때 `@Benchmark` 애너테이션을 사용합니다. 이 애너테이션을 붙인 메서드는 벤치마크로 실행됩니다.
+
+3. **Warmup과 Measurement:** 벤치마크 실행 전에 "웜업(Warmup)" 단계가 있으며, 이 단계에서 JIT(Just-In-Time) 컴파일러를 활성화하고 최적화합니다. 그런 다음 "측정(Measurement)" 단계에서 성능 측정이 이루어집니다.
+
+4. **결과 출력:** 벤치마크 결과는 표준 출력에 출력되며, 초당 연산 횟수(OPS) 및 표준 편차와 같은 성능 지표가 제공됩니다.
+
+
+다음은 Java 12의 마이크로벤치마크 도구를 사용하는 간단한 예제입니다.
+```java
+import org.openjdk.jmh.annotations.*;
+
+@State(Scope.Thread)
+public class MicrobenchmarkExample {
+
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @Warmup(iterations = 3, time = 1)
+    @Measurement(iterations = 5, time = 1)
+    public void benchmarkMethod() {
+        // 여기에 벤치마크하려는 코드를 작성합니다.
+    }
+
+    public static void main(String[] args) throws Exception {
+        org.openjdk.jmh.Main.main(args);
+    }
+}
+```
+
+> 결과에는 OPS(초당 연산 횟수)와 표준 편차 등이 포함됩니다.
+
 ### Java SE 13
 ---
 #### **기능 변화**
@@ -709,17 +997,6 @@ var a = switch (day) {
     case WEDNESDAY:
         yield 9;
 };
-```
-
-**2. Text Block**
-줄 바꿈 문자가 자동으로 포함됩니다.
-
-```java
-String str = """
-   This
-   is
-   text block
-""";
 ```
 
 ### Java SE 14
@@ -807,22 +1084,12 @@ if (animal instanceof Cat cat) {
 Java SE 13의 실험 기능으로 도입된 여러 줄 문자열의 Production Ready 버전입니다.
 
 ```java
-String text = *"""
-                Lorem ipsum dolor sit amet, consectetur adipiscing \
-                elit, sed do eiusmod tempor incididunt ut labore \
-                et dolore magna aliqua.\
-                """*;
+String text = """
+                Lorem ipsum dolor sit amet, consectetur adipiscing 
+                elit, sed do eiusmod tempor incididunt ut labore 
+                et dolore magna aliqua.
+                """;
 ```
-
-**2. Sealed Classes - Preview**
-상속 가능한 클래스를 지정할 수 있는 봉인 클래스가 제공됩니다. 상속 가능한 대상은 상위 클래스 또는 인터페이스 패키지 내에 속해 있어야 합니다.
-
-```java
-public abstract sealed class Shape
-    permits Circle, Rectangle, Square {...}
-```
-
-즉, 클래스가 public인 동안 하위 클래스로 허용되는 유일한 Shape 클래스들은 Circle, Rectangle 및 Square입니다.
 
 ### Java SE 16
 ---
@@ -838,12 +1105,14 @@ OpenJDK 의 버전 관리가 Mercurial이었으나,  [Git](https://namu.wiki/w
         *"/var/run/postgresql/.s.PGSQL.5432"*));
 ```
 
-### Java SE 17
+### Java SE 17 (LTS)
 ---
 #### **기능 변화**
 
 **1. RandomGenerator(의사난수 생성기)**
 의사난수 생성기를 통해 예측하기 어려운 난수를 생성하는 API가 정식 출시되었습니다.
+
+> 기존에 난수 생성 어떻게 했더라?
 
 ```java
 RandomGeneratorFactory.all()
@@ -855,13 +1124,27 @@ RandomGeneratorFactory.all()
 										factory.isSplittable())));
 ```
 
-**2. Sealed Class의 정식 도입**
-Java 15에서 Preview로 도입되었던 sealed class가 production으로 도입되었습니다.
+**2. Sealed Classes**
+상속 가능한 클래스를 지정할 수 있는 봉인 클래스가 제공됩니다. 상속 가능한 대상은 상위 클래스 또는 인터페이스 패키지 내에 속해 있어야 합니다.
+
+```java
+public abstract sealed class Shape
+    permits Circle, Rectangle, Square {...}
+```
+
+즉, 클래스가 public인 동안 하위 클래스로 허용되는 유일한 Shape 클래스들은 Circle, Rectangle 및 Square입니다.
+
+> **sealed class의 도입 배경**
+> 1. **상속 제어:** 기존에 Java 클래스는 어떤 클래스든지 다른 클래스에서 상속될 수 있었습니다. 이로 인해 클래스의 디자인이 의도치 않게 변경될 수 있고, 예기치 않은 버그와 보안 취약점이 발생할 수 있었습니다. Sealed 클래스는 어떤 클래스가 이를 상속할 수 있는지 명시적으로 제어함으로써 이러한 문제를 방지합니다.
+> 1. **API 디자인의 안정성:** Sealed 클래스를 사용하면 API 디자인의 안정성을 높일 수 있습니다. 외부에서 상속된 클래스가 무제한적으로 추가되지 않도록 하여 API의 일관성을 유지할 수 있습니다. 
+> 3. **패턴 매칭과 결합:** Sealed 클래스는 패턴 매칭과 결합하여 더 효과적인 코드를 작성할 수 있도록 합니다. 패턴 매칭은 패턴별로 처리할 수 있도록 하며, Sealed 클래스는 이러한 패턴 매칭에서 유용하게 사용될 수 있습니다.
 
 ### Java SE 18
 ---
 
 **1. 자바 API의 기본 Charset이 [UTF-8](https://namu.wiki/w/UTF-8 "UTF-8")으로 지정되었다.**
+
+> 기존의 Java에서 기본 Charset은 사용되는 플랫폼에 따라 달라졌습니다. 예를 들어 Windows 운영 체제에서는 기본적으로 "Windows-1252" 문자 집합이 사용되었고, Unix/Linux 운영 체제에서는 "UTF-8" 문자 집합이 주로 사용되었습니다.
 
 **2. 정적 파일을 서빙하는 기능만 있는 심플한 웹 서버 제공 (커맨드라인 툴)**
 
@@ -953,3 +1236,239 @@ assert Arrays.equals(javaStrings, new String[] {"car", "cat", "dog", "mouse"}); 
 
 **9. try문의 finally기능 deprecate.**
 아직 제거되진 않았지만 더 이상 사용을 권장하지 않습니다.
+
+### Java SE 21 (LTS)
+---
+- [JEP 431](https://openjdk.org/jeps/431 "https://openjdk.org/jeps/431"): 순차 컬렉션(Sequenced Collections)
+
+**1. 순차 컬렉션 (Sequenced Collections)**
+
+> **도입 배경**
+
+| |첫 번째 요소|마지막 요소|
+|---|---|---|
+|`List`|`list.get(0)`|`list.get(list.size() - 1)`|
+|`Deque`|`deque.getFirst()`|`deque.getLast()`|
+|`SortedSet`|`sortedSet.first()`|`sortedSet.last()`|
+|`LinkedHashSet`|`linkedHashSet.iterator().next()`|`// missing`|
+
+> 기존에 정의되어 있던 Collection Framework 및 구현체의 경우 정해진 순서대로 데이터를 얻고자 할 때 명확한 기준점이 없었던 문제가 있었습니다. 따라서 어떤 경우 첫 번째 요소를 얻고자 할 때와 마지막 요소를 얻고자 할 때 구현해야 하는 방식이 달랐습니다.
+
+> 순차화된 컬렉션에는 첫 번째 요소와 마지막 요소가 있으며, 그 사이의 요소에는 후속 요소와 선행 요소가 있습니다. 순차 컬렉션은 양쪽 끝에서(First와 Last) 동일한 기능을 지원하며 처음부터 마지막으로, 마지막에서 처음으로(즉, 정방향 및 역방향) 데이터를 동일하게 다룰 수 있도록 지원합니다.
+
+```java
+interface SequencedCollection<E> extends Collection<E> {
+    // new method
+    SequencedCollection<E> reversed();
+    // methods promoted from Deque
+    void addFirst(E);
+    void addLast(E);
+    E getFirst();
+    E getLast();
+    E removeFirst();
+    E removeLast();
+}
+```
+
+동일하게 SequencedSet, SequencedMap 또한 지원합니다.
+
+![Pasted Image](https://cr.openjdk.org/~smarks/collections/SequencedCollectionDiagram20220216.png)
+
+세부적으로는 기존 클래스와 인터페이스를 개선하기 위해 다음과 같은 수정 사항이 있었습니다.
+
+- `List`는 이제 상위 인터페이스로 `SequencedCollection`가 있습니다.
+- `Deque`는 이제 상위 인터페이스로 `SequencedCollection`가 있습니다.
+- `LinkedHashSet`은 추가로 `SequencedSet`을 구현합니다.
+- `SortedSet`는 이제 상위 인터페이스로 `SequencedSet`가 있습니다.
+- `LinkedHashMap`은 추가로 `SequencedMap`을 구현합니다.
+- `SortedMap`은 이제 상위 인터페이스로 `SequencedMap`가 있습니다.
+
+또한 Immutable 래퍼를 생성할 수 있는 추가적인 API를 제공합니다.
+
+- `Collections.unmodifiableSequencedCollection(sequencedCollection)`
+- `Collections.unmodifiableSequencedSet(sequencedSet)`
+- `Collections.unmodifiableSequencedMap(sequencedMap)`
+
+**2. [Generational ZGC](https://openjdk.org/jeps/439 "https://openjdk.org/jeps/439")**
+> 메모리 상의 "젊은" 객체와 "오래된" 객체에 대해 별도의 세대를 유지함으로써 애플리케이션 성능을 향상시킵니다. 이를 통해 ZGC는 어려서 죽기 쉬운 어린 객체를 더 자주 수집할 수 있습니다.
+
+**3. [레코드 패턴](https://openjdk.org/jeps/440 "https://openjdk.org/jeps/440")**
+> Java SE 14에 도입되었던 레코드 클래스와 패턴 매칭을 결합하여 사용이 가능합니다.
+> 예를 들어서 기존의 경우 패턴 매칭을 직관적으로 사용하지 못하고 분해하여 사용하여야 했습니다.
+```java
+// As of Java 16
+record Point(int x, int y) {}
+
+static void printSum(Object obj) {
+    if (obj instanceof Point p) {
+        int x = p.x();
+        int y = p.y();
+        System.out.println(x+y);
+    }
+}
+```
+
+> 이제 패턴 매칭에 레코드 클래스를 바로 사용 가능합니다.
+```java
+// As of Java 21
+static void printSum(Object obj) {
+    if (obj instanceof Point(int x, int y)) {
+        System.out.println(x+y);
+    }
+}
+```
+
+**4. [`switch` 문의 패턴 매칭 정식 출시](https://openjdk.org/jeps/441 "https://openjdk.org/jeps/441")**
+> switch 문에서의 패턴 매칭 사용 기능이 프로덕션되었습니다. 이제 보다 직관적으로 swtich 문 내부에서 객체의 타입을 검증할 수 있습니다.
+```java
+// Prior to Java 21
+static String formatter(Object obj) {
+    String formatted = "unknown";
+    if (obj instanceof Integer i) {
+        formatted = String.format("int %d", i);
+    } else if (obj instanceof Long l) {
+        formatted = String.format("long %d", l);
+    } else if (obj instanceof Double d) {
+        formatted = String.format("double %f", d);
+    } else if (obj instanceof String s) {
+        formatted = String.format("String %s", s);
+    }
+    return formatted;
+}
+```
+```java
+// As of Java 21
+static String formatterPatternSwitch(Object obj) {
+    return switch (obj) {
+        case Integer i -> String.format("int %d", i);
+        case Long l    -> String.format("long %d", l);
+        case Double d  -> String.format("double %f", d);
+        case String s  -> String.format("String %s", s);
+        default        -> obj.toString();
+    };
+}
+```
+
+**5. [가상 스레드(Virtual Threads)](https://openjdk.org/jeps/444 "https://openjdk.org/jeps/444")** 
+> Project Loom으로 알려진 기술입니다. 기존 스레드보다 비용이 저렴하고 더 많이 생성 가능하며, `Spring` 에서 이 기술을 적용하여 기존 코드로도 동시성 처리를 만들어준다고 공언한 원천 기술이 정식 출시되었습니다.
+```java
+void handle(Request request, Response response) {
+    var url1 = ...
+    var url2 = ...
+ 
+    try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+        var future1 = executor.submit(() -> fetchURL(url1));
+        var future2 = executor.submit(() -> fetchURL(url2));
+        response.send(future1.get() + future2.get());
+    } catch (ExecutionException | InterruptedException e) {
+        response.fail(e);
+    }
+}
+ 
+String fetchURL(URL url) throws IOException {
+    try (var in = url.openStream()) {
+        return new String(in.readAllBytes(), StandardCharsets.UTF_8);
+    }
+}
+```
+
+**6. [Windows 32-bit x86 제거 예정](https://openjdk.org/jeps/449 "https://openjdk.org/jeps/449")**
+> Windows 32비트 x86 포트가 deprecated 되었습니다. 사용 불가능한 것은 아니나 향후 유지보수를 위해 사용을 추천하지 않습니다.
+
+**7. [자바 Agent의 동적 불러오기를 허용하지 않도록 세팅](https://openjdk.org/jeps/451 "https://openjdk.org/jeps/451")**
+> Agent가 실행 중인 JVM에 동적으로 로드되면 경고를 발생 시킵니다. 향후 릴리스에는 [기본 상태 무결성 개선을](https://openjdk.org/jeps/8305968) 위해 기본적으로 Agent의 동적 로드를 허용하지 않으며 이러한 경고를 통해 사용자들을 준비시키는 것을 목표로 하고 있습니다. 시작 시 Agent를 로드하는 Serviceability tools는 어떤 릴리스에서도 경고를 발행하지 않습니다.
+
+**6. [키 캡슐화 메커니즘 API](https://openjdk.org/jeps/452 "https://openjdk.org/jeps/452")**
+> 공개 키 암호화를 사용하여 대칭 키를 보호하기 위한 암호화 기술인 키 캡슐화 메커니즘(KEM)용 API가 도입되었습니다.
+
+> KEM은 세 가지 기능으로 구성됩니다.
+>- 공개키와 개인키가 포함된 키 쌍을 반환하는 _키 쌍 생성 함수입니다_ .
+>- _송신자가 호출하는 키 캡슐화 함수는_ 수신자 의 공개 키와 암호화 옵션을 사용합니다. 비밀 키 _K_ 와 _키 캡슐화 메시지_ ( ISO 18033-2에서는 _암호문 이라고 함)를 반환합니다._ 송신자는 수신자에게 키 캡슐화 메시지를 보냅니다.
+>- 수신자의 개인 키와 수신된 키 캡슐화 메시지를 사용하는 수신자가 호출하는 _키 캡슐화 해제 함수_ . 비밀 키 _K 를_ 반환합니다.
+
+> 키 쌍 생성 기능은 기존 [`KeyPairGenerator` API](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/security/KeyPairGenerator.html) 에서 제공하고 있습니다. `KEM`캡슐화 및 캡슐화 해제 기능을 위해 새로운 Class를 도입하였습니다.
+
+```java
+package javax.crypto;
+
+public class DecapsulateException extends GeneralSecurityException;
+
+public final class KEM {
+
+    public static KEM getInstance(String alg)
+        throws NoSuchAlgorithmException;
+    public static KEM getInstance(String alg, Provider p)
+        throws NoSuchAlgorithmException;
+    public static KEM getInstance(String alg, String p)
+        throws NoSuchAlgorithmException, NoSuchProviderException;
+
+    public static final class Encapsulated {
+        public Encapsulated(SecretKey key, byte[] encapsulation, byte[] params);
+        public SecretKey key();
+        public byte[] encapsulation();
+        public byte[] params();
+    }
+
+    public static final class Encapsulator {
+        String providerName();
+        int secretSize();           // Size of the shared secret
+        int encapsulationSize();    // Size of the key encapsulation message
+        Encapsulated encapsulate();
+        Encapsulated encapsulate(int from, int to, String algorithm);
+    }
+
+    public Encapsulator newEncapsulator(PublicKey pk)
+            throws InvalidKeyException;
+    public Encapsulator newEncapsulator(PublicKey pk, SecureRandom sr)
+            throws InvalidKeyException;
+    public Encapsulator newEncapsulator(PublicKey pk, AlgorithmParameterSpec spec,
+                                        SecureRandom sr)
+            throws InvalidAlgorithmParameterException, InvalidKeyException;
+
+    public static final class Decapsulator {
+        String providerName();
+        int secretSize();           // Size of the shared secret
+        int encapsulationSize();    // Size of the key encapsulation message
+        SecretKey decapsulate(byte[] encapsulation) throws DecapsulateException;
+        SecretKey decapsulate(byte[] encapsulation, int from, int to,
+                              String algorithm)
+                throws DecapsulateException;
+    }
+
+    public Decapsulator newDecapsulator(PrivateKey sk)
+            throws InvalidKeyException;
+    public Decapsulator newDecapsulator(PrivateKey sk, AlgorithmParameterSpec spec)
+            throws InvalidAlgorithmParameterException, InvalidKeyException;
+
+}
+```
+
+> Example
+```java
+// Receiver side
+KeyPairGenerator g = KeyPairGenerator.getInstance("ABC");
+KeyPair kp = g.generateKeyPair();
+publishKey(kp.getPublic());
+
+// Sender side
+KEM kemS = KEM.getInstance("ABC-KEM");
+PublicKey pkR = retrieveKey();
+ABCKEMParameterSpec specS = new ABCKEMParameterSpec(...);
+KEM.Encapsulator e = kemS.newEncapsulator(pkR, specS, null);
+KEM.Encapsulated enc = e.encapsulate();
+SecretKey secS = enc.key();
+sendBytes(enc.encapsulation());
+sendBytes(enc.params());
+
+// Receiver side
+byte[] em = receiveBytes();
+byte[] params = receiveBytes();
+KEM kemR = KEM.getInstance("ABC-KEM");
+AlgorithmParameters algParams = AlgorithmParameters.getInstance("ABC-KEM");
+algParams.init(params);
+ABCKEMParameterSpec specR = algParams.getParameterSpec(ABCKEMParameterSpec.class);
+KEM.Decapsulator d = kemR.newDecapsulator(kp.getPrivate(), specR);
+SecretKey secR = d.decapsulate(em);
+
+// secS and secR will be identical
+```
